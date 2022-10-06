@@ -1,10 +1,11 @@
 const { describe, test, expect } = require("@jest/globals");
-const { default: expect_2 } = require("expect");
+
 const {
   translateNumByValues,
   replaceValue,
   checkIfStringContainsOnlyNum,
   removeAllDigitsFromString,
+  computeString,
 } = require("./FooBarQix");
 
 describe("Chek if string is divisible by 3, 5 or 7", () => {
@@ -53,5 +54,20 @@ describe("Check if all digits from string are removed", () => {
   test("should not remove anything", () => {
     const value = "BarFoo*";
     expect(removeAllDigitsFromString("BarFoo*")).toBe("BarFoo*");
+  });
+});
+
+describe("Check if string compute depending on all conditions", () => {
+  test("Should replace 0 by * ", () => {
+    const value = "101";
+    expect(computeString(value)).toBe("1*1");
+  });
+  test("Should replace value ", () => {
+    const value = "105";
+    expect(computeString(value)).toBe("FooBarQix*Bar");
+  });
+  test("Should not change anything", () => {
+    const value = "29";
+    expect(computeString(value)).toBe("29");
   });
 });
