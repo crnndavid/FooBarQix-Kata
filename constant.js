@@ -3,4 +3,4 @@ const VALUES_CONDITION = {
   replaceBy: ["Foo", "Bar", "Qix", "*"],
 };
 
-module.exports = { VALUES_CONDITION };
+module.exports = VALUES_CONDITION;

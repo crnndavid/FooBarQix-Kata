@@ -1,4 +1,17 @@
-const { VALUES_CONDITION } = require("./constant");
+const VALUES_CONDITION = require("./constant");
+
+// Main Function
+
+const computeString = (numString) => {
+  const result = translateNumByValues(numString);
+  const arrWithReplaceValues = replaceValue(stringToArr(numString));
+
+  let finalResult;
+  return checkIfStringContainsOnlyNum(result)
+    ? (finalResult = arrWithReplaceValues.join(""))
+    : (finalResult =
+        result + removeAllDigitsFromString(arrWithReplaceValues.join("")));
+};
 
 // Check if numString is divisible by ValuesConditions
 
@@ -50,9 +63,21 @@ const removeAllDigitsFromString = (arr) => {
   return arr.replace(/[0-9]/g, "");
 };
 
+// Call the main function computeString
+
+console.log(computeString("105"));
+console.log(computeString("29"));
+console.log(computeString("48"));
+console.log(computeString("10101010101"));
+console.log(computeString("33"));
+console.log(computeString("15"));
+
+// Export Functions
+
 module.exports = {
   translateNumByValues,
   replaceValue,
   checkIfStringContainsOnlyNum,
   removeAllDigitsFromString,
+  computeString,
 };
