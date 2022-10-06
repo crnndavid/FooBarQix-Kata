@@ -39,7 +39,20 @@ const replaceValue = (arrOfNumString) => {
   return arrWithNewValue;
 };
 
+// Check if string contains only Number
+
+const checkIfStringContainsOnlyNum = (str) => {
+  return /^[0-9]+$/.test(str);
+};
+
+// Remove all digits from string
+const removeAllDigitsFromString = (arr) => {
+  return arr.replace(/[0-9]/g, "");
+};
+
 module.exports = {
   translateNumByValues,
   replaceValue,
+  checkIfStringContainsOnlyNum,
+  removeAllDigitsFromString,
 };
